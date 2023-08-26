@@ -19,8 +19,9 @@ spec:
         - ./clusters/my-cluster/podinfo/chart/values.yaml
   postRenderers:
   - kustomize:
-      patches:
-        - path: ./deployment-new.yaml
-          target:
-            kind: Deployment 
-            name: flux-system-release-podinfo
+      patchesJson6902:
+      - target:
+          version: v1
+          kind: Deployment
+          name: flux-system-release-podinfo
+        path: deployment-new.yaml
