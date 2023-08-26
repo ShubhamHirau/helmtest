@@ -20,15 +20,24 @@ spec:
   postRenderers:
   - kustomize:
       patchesStrategicMerge:
-      - kind: Deployment
-        apiVersion: apps/v1
-        metadata:
-          name: flux-system-release-podinfo
-          labels:
-            my.label.local: mylocalchart
-            our.label.local: ourlocalchart
-        spec:
-          replicas: 2
+      - |
+        - kind: Deployment
+          apiVersion: apps/v1
+          metadata:
+            name: flux-system-release-podinfo
+            labels:
+              my.label.local: mylocalchart
+              our.label.local: ourlocalchart
+          spec:
+            replicas: 2
+      - |
+        - kind: Service
+          apiVersion: v1
+          metadata:
+            labels:
+              my.svclabel.local: mysvclocalchart
+              our.svclabel.local: oursvclocalchart
+            name: flux-system-release-podinfo
   values:
     serviceAccount:
       enabled: false
