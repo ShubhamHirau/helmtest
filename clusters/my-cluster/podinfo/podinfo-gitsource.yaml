@@ -4,7 +4,7 @@ metadata:
   name: podinfo-kube-manifest
   namespace: flux-system
 spec:
-  interval: 3m
+  interval: 1m
   url: https://github.com/ShubhamHirau/helmtest.git
   secretRef:
     name: flux-system
