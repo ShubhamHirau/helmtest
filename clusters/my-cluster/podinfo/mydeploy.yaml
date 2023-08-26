@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    our.label.local: ourlocalchart
+    how.label.local: howlocalchart
+    wow.label.local: wowlocalchart
+  name: flux-system-release-podinfo
+spec:
+  replicas: 1
