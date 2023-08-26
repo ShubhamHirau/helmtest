@@ -29,6 +29,15 @@ spec:
             our.label.local: ourlocalchart
         spec:
           replicas: 2
+      - kind: Service
+        apiVersion: v1
+        metadata:
+          name: flux-system-release-podinfo
+          labels:
+            mysvc.label.local: mysvclocalchart
+            oursvc.label.local: ourlocalchartsvc
+        spec:
+          type: NodePort
   values:
     serviceAccount:
       enabled: false
