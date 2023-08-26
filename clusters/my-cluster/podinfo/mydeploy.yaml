@@ -7,4 +7,4 @@ metadata:
     wow.label.local: wowlocalchart
   name: flux-system-release-podinfo
 spec:
-  replicas: 1
+  replicas: 3

@@ -20,7 +20,7 @@ spec:
   postRenderers:
   - kustomize:
       patchesStrategicMerge:
-      - mydeploy.yaml
+      - ./clusters/my-cluster/podinfo/mydeploy.yaml
   values:
     serviceAccount:
       enabled: false
