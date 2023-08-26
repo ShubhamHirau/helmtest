@@ -37,7 +37,7 @@ spec:
           labels:
             mysa.label.local: mysalocalchart
             oursa.label.local: oursalocalchart
-            name: flux-system-release-podinfo
+          name: flux-system-release-podinfo
   values:
     serviceAccount:
       enabled: true
