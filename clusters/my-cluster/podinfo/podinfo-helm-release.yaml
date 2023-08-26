@@ -71,3 +71,7 @@ spec:
           paths:
             - path: /
               pathType: ImplementationSpecific
+    redis:
+      enabled: false
+      repository: redis
+      tag: 7.0.7
