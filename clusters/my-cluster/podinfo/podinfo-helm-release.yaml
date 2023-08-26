@@ -29,6 +29,8 @@ spec:
             our.label.local: ourlocalchart
         spec:
           replicas: 1
+  - kustomize:
+      patchesStrategicMerge:
       - kind: ServiceAccount
         apiVersion: v1
         metadata:
