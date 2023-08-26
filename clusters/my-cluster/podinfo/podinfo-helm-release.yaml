@@ -20,7 +20,7 @@ spec:
   postRenderers:
   - kustomize:
       patchesStrategicMerge:
-      - |
+      - |-
         kind: Deployment
         apiVersion: apps/v1
         metadata:
@@ -30,7 +30,7 @@ spec:
             our.label.local: ourlocalchart
         spec:
           replicas: 1
-      - |
+      - |-
         kind: ServiceAccount
         apiVersion: v1
         metadata:
