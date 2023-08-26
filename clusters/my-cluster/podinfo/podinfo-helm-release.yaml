@@ -20,7 +20,7 @@ spec:
   postRenderers:
   - kustomize:
       patchesStrategicMerge:
-      - ./mydeploy.yaml
+      - mydeploy.yaml
   values:
     serviceAccount:
       enabled: false
