@@ -17,3 +17,14 @@ spec:
       interval: 1m
       valuesFiles:
         - ./clusters/my-cluster/podinfo/chart/values.yaml
+  postRenderers:
+  - kustomize:
+      patchesStrategicMerge:
+      - kind: Deployment
+        apiVersion: apps/v1
+        metadata:
+          name: flux-system-release-podinfo
+          labels:
+            my.label.local: mylocalchart
+        spec:
+          replicas: 2
