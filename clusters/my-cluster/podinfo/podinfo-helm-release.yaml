@@ -58,6 +58,22 @@ spec:
                       number: 9898
                 path: /
                 pathType: ImplementationSpecific
+      - kind: Deployment
+        apiVersion: apps/v1
+        metadata:
+          annotations:
+            myredis.annottae.local: "18"
+          labels:
+            myredis.label.local: myredislocallabel
+          name: flux-system-release-podinfo-redis
+        spec:
+          replicas: 2
+          revisionHistoryLimit: 8
+          strategy:
+            rollingUpdate:
+              maxSurge: 25%
+              maxUnavailable: 1
+            type: RollingUpdate
   values:
     serviceAccount:
       enabled: false
