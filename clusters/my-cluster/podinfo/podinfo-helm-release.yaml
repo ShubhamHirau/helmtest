@@ -38,6 +38,26 @@ spec:
             oursvc.label.local: ourlocalchartsvc
         spec:
           type: NodePort
+      - kind: Ingress
+        apiVersion: networking.k8s.io/v1
+        metadata:
+          labels:
+            mying.label.local: myinglocalchart
+            oking.label.local: okinglocalchart
+          name: flux-system-release-podinfo
+        spec:
+          ingressClassName: null
+          rules:
+          - host: podinfo.ing.local
+            http:
+              paths:
+              - backend:
+                  service:
+                    name: flux-system-release-podinfo
+                    port:
+                      number: 9898
+                path: /
+                pathType: ImplementationSpecific
   values:
     serviceAccount:
       enabled: false
