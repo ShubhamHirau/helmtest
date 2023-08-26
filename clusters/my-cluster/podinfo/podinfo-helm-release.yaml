@@ -31,5 +31,5 @@ spec:
           replicas: 2
   values:
     serviceAccount:
-      enabled: true
-    logLevel: debug
+      enabled: false
+    logLevel: info
