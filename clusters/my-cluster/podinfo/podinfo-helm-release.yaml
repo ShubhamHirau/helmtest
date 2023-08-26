@@ -19,12 +19,8 @@ spec:
         - ./clusters/my-cluster/podinfo/chart/values.yaml
   postRenderers:
   - kustomize:
-      patchesStrategicMerge:
-      - kind: Deployment
-        apiVersion: apps/v1
-        metadata:
-          name: flux-system-release-podinfo
-          labels:
-            my.label.local: mylocalchart
-        spec:
-          replicas: 2
+      patches:
+        - path: deployment-new.yaml
+          target:
+            kind: Deployment 
+            name: flux-system-release-podinfo
