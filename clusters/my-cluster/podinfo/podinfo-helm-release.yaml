@@ -9,11 +9,11 @@ spec:
   chart:
     spec:
       reconcileStrategy: Revision
-      chart: ./
+      chart: ./clusters/my-cluster/podinfo/chart/
       sourceRef:
         kind: GitRepository
         name: podinfo-kube-manifest
         namespace: flux-system
       interval: 1m
       valuesFiles:
-        - ./values.yaml
+        - ./clusters/my-cluster/podinfo/chart/values.yaml

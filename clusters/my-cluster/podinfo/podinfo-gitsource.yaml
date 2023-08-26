@@ -6,13 +6,13 @@ metadata:
 spec:
   interval: 3m
   url: https://github.com/ShubhamHirau/helmtest.git
-  # secretRef:
-  #   name: flux-system
+  secretRef:
+    name: flux-system
   ref:
     branch: main
     # commit: f16501c96b99c643217cf078e00b84b94a4dfd7c
-  ignore: |
-    exclude all
-    /*
-    include helm directory
-    !/clusters/my-cluster/podinfo/chart/
+  # ignore: |
+  #   exclude all
+  #   /*
+  #   include helm directory
+  #   !/clusters/my-cluster/podinfo/chart/
