@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: release-podinfo
+  namespace: flux-system
+spec:
+  targetNamespace: flux-system
+  interval: 1m
+  chart:
+    spec:
+      reconcileStrategy: Revision
+      chart: ./
+      sourceRef:
+        kind: GitRepository
+        name: podinfo-kube-manifest
+        namespace: flux-system
+      interval: 1m
+      valuesFiles:
+        - ./values.yaml
