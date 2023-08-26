@@ -20,7 +20,7 @@ spec:
   postRenderers:
   - kustomize:
       patches:
-        - path: deployment-new.yaml
+        - path: ./deployment-new.yaml
           target:
             kind: Deployment 
             name: flux-system-release-podinfo

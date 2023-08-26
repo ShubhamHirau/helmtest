@@ -2,9 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    my.label.local: mylocaltwochart
-    our.label.local: ourlocaltwochart
+    our.label.local: ourlocalchart
+    how.label.local: howlocalchart
   name: flux-system-release-podinfo
 spec:
-  revisionHistoryLimit: 8
   replicas: 1
