@@ -9,7 +9,7 @@ spec:
   # secretRef:
   #   name: flux-system
   ref:
-    branch: master
+    branch: main
     # commit: f16501c96b99c643217cf078e00b84b94a4dfd7c
   ignore: |
     exclude all
