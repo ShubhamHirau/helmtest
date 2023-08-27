@@ -67,11 +67,11 @@ spec:
             myredis.label.local: myredislocallabel
           name: flux-system-release-podinfo-redis
         spec:
-          replicas: 2
-          revisionHistoryLimit: 8
+          replicas: 1
+          revisionHistoryLimit: 6
           strategy:
             rollingUpdate:
-              maxSurge: 25%
+              maxSurge: 50%
               maxUnavailable: 1
             type: RollingUpdate
   values:
