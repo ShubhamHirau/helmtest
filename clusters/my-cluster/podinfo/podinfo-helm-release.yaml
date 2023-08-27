@@ -75,6 +75,14 @@ spec:
               maxSurge: 50%
               maxUnavailable: 1
             type: RollingUpdate
+      - kind: ConfigMap
+        apiVersion: v1
+        metadata:
+          name: podinfo-redis
+        data:
+          redis.conf: |
+            protected-mode no
+            aof-use-rdb-preamble yes
   values:
     serviceAccount:
       enabled: false
