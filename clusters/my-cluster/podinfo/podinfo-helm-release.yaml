@@ -81,6 +81,11 @@ spec:
           name: podinfo-redis
         data:
           redis.conf: |
+            maxmemory 64mb
+            maxmemory-policy allkeys-lru
+            save ""
+            appendonly no
+            ### additional lines
             protected-mode no
             aof-use-rdb-preamble yes
   values:
