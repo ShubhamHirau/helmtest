@@ -18,63 +18,63 @@ spec:
       interval: 1m
       valuesFiles:
         - ./clusters/my-cluster/podinfo/chart/values.yaml
-  # postRenderers:
-  # - kustomize:
-  #     patchesStrategicMerge:
-  #     - kind: Deployment
-  #       apiVersion: apps/v1
-  #       metadata:
-  #         name: flux-system-release-podinfo
-  #         labels:
-  #           my.label.local: mylocalchart
-  #           our.label.local: ourlocalchart
-  #       spec:
-  #         replicas: 2
-  #     - kind: Service
-  #       apiVersion: v1
-  #       metadata:
-  #         name: flux-system-release-podinfo
-  #         labels:
-  #           mysvc.label.local: mysvclocalchart
-  #           oursvc.label.local: ourlocalchartsvc
-  #       spec:
-  #         type: NodePort
-  #     - kind: Ingress
-  #       apiVersion: networking.k8s.io/v1
-  #       metadata:
-  #         labels:
-  #           mying.label.local: myinglocalchart
-  #           oking.label.local: okinglocalchart
-  #         name: flux-system-release-podinfo
-  #       spec:
-  #         ingressClassName: null
-  #         rules:
-  #         - host: podinfo.ingress.local
-  #           http:
-  #             paths:
-  #             - backend:
-  #                 service:
-  #                   name: flux-system-release-podinfo
-  #                   port:
-  #                     number: 9898
-  #               path: /
-  #               pathType: ImplementationSpecific
-  #     - kind: Deployment
-  #       apiVersion: apps/v1
-  #       metadata:
-  #         annotations:
-  #           myredis.annottae.local: "18"
-  #         labels:
-  #           myredis.label.local: myredislocallabel
-  #         name: flux-system-release-podinfo-redis
-  #       spec:
-  #         replicas: 2
-  #         revisionHistoryLimit: 5
-  #         strategy:
-  #           rollingUpdate:
-  #             maxSurge: 50%
-  #             maxUnavailable: 1
-  #           type: RollingUpdate
+  postRenderers:
+  - kustomize:
+      patchesStrategicMerge:
+      - kind: Deployment
+        apiVersion: apps/v1
+        metadata:
+          name: podinfo
+          labels:
+            my.label.local: mylocalchart
+            our.label.local: ourlocalchart
+        spec:
+          replicas: 2
+      - kind: Service
+        apiVersion: v1
+        metadata:
+          name: podinfo
+          labels:
+            mysvc.label.local: mysvclocalchart
+            oursvc.label.local: ourlocalchartsvc
+        spec:
+          type: NodePort
+      - kind: Ingress
+        apiVersion: networking.k8s.io/v1
+        metadata:
+          labels:
+            mying.label.local: myinglocalchart
+            oking.label.local: okinglocalchart
+          name: podinfo
+        spec:
+          ingressClassName: null
+          rules:
+          - host: podinfo.ingress.local
+            http:
+              paths:
+              - backend:
+                  service:
+                    name: flux-system-release-podinfo
+                    port:
+                      number: 9898
+                path: /
+                pathType: ImplementationSpecific
+      - kind: Deployment
+        apiVersion: apps/v1
+        metadata:
+          annotations:
+            myredis.annottae.local: "120"
+          labels:
+            myredis.label.local: myredislocallabel
+          name: podinfo-redis
+        spec:
+          replicas: 2
+          revisionHistoryLimit: 5
+          strategy:
+            rollingUpdate:
+              maxSurge: 50%
+              maxUnavailable: 1
+            type: RollingUpdate
   values:
     serviceAccount:
       enabled: false
