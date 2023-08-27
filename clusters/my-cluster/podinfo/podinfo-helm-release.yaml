@@ -48,7 +48,7 @@ spec:
         spec:
           ingressClassName: null
           rules:
-          - host: podinfo.ing.local
+          - host: podinfo.ingress.local
             http:
               paths:
               - backend:
@@ -67,8 +67,8 @@ spec:
             myredis.label.local: myredislocallabel
           name: flux-system-release-podinfo-redis
         spec:
-          replicas: 1
-          revisionHistoryLimit: 6
+          replicas: 2
+          revisionHistoryLimit: 5
           strategy:
             rollingUpdate:
               maxSurge: 50%
