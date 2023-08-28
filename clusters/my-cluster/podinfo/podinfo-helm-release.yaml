@@ -41,14 +41,14 @@ spec:
                         operator: In
                         values:
                         - linux
-                      - key: kubernetes.io/hostname
-                        operator: In
-                        values:
-                        - minikube
-                      - key: kubernetes.io/arch
-                        operator: In
-                        values:
-                        - amd64
+                      # - key: kubernetes.io/hostname
+                      #   operator: In
+                      #   values:
+                      #   - minikube
+                      # - key: kubernetes.io/arch
+                      #   operator: In
+                      #   values:
+                      #   - amd64
       - kind: Service
         apiVersion: v1
         metadata:
