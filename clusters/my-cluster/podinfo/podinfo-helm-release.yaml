@@ -30,6 +30,25 @@ spec:
             our.label.local: ourlocalchart
         spec:
           replicas: 2
+          template:
+            spec:
+              affinity:
+                nodeAffinity:
+                  requiredDuringSchedulingIgnoredDuringExecution:
+                    nodeSelectorTerms:
+                    - matchExpressions:
+                      - key: kubernetes.io/os
+                        operator: In
+                        values:
+                        - linux
+                      - key: kubernetes.io/hostname
+                        operator: In
+                        values:
+                        - minikube
+                      - key: kubernetes.io/arch
+                        operator: In
+                        values:
+                        - amd64
       - kind: Service
         apiVersion: v1
         metadata:
